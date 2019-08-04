@@ -1,0 +1,56 @@
+﻿<Page
+    x:Class="App3.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:App3"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+        <VisualStateManager.VisualStateGroups> <!--added later start-->
+            <VisualStateGroup>
+                <VisualState x:Name="wideState">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="641"/>
+                    </VisualState.StateTriggers>
+                </VisualState>
+                <VisualState x:Name="narrowState">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter
+                            Target="MainStack.Orientation" Value="Vertical"/>
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups> <!--added later end-->
+        
+        <StackPanel x:Name="MainStack" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal">
+
+            <Image x:Name="Image" Height="200" Width="300"/>
+
+            <StackPanel x:Name="Controls" Orientation="Vertical" VerticalAlignment="Center">
+
+                <StackPanel x:Name="Labels" Orientation="Horizontal">
+                    <TextBlock x:Name="Textblock1" Margin="15" TextWrapping="Wrap" Text="..." Width="20"/>
+                    <TextBlock x:Name="Textblock2" Margin="15" TextWrapping="Wrap" Text="..." Width="20"/>
+                    <TextBlock x:Name="Textblock3" Margin="15" TextWrapping="Wrap" Text="..." Width="20"/>
+                    <TextBlock x:Name="Textblock4" Margin="15" TextWrapping="Wrap" Text="..." Width="20"/>
+                    <TextBlock x:Name="Textblock5" Margin="15" TextWrapping="Wrap" Text="..." Width="20"/>
+                    <TextBlock x:Name="Textblock6" Margin="15" TextWrapping="Wrap" Text="..." Width="20"/>
+                </StackPanel>
+
+                <StackPanel x:Name="Buttons" Orientation="Horizontal">
+                    <Button x:Name="Btnpick" Content="Get numbers" Margin="15" IsEnabled="True" Click="Btnpick_Click"/>
+                    <Button x:Name="Btnreset" Content="Reset" Margin="15" IsEnabled="False" Click="Btnreset_Click"/>
+                </StackPanel>
+
+            </StackPanel>
+
+        </StackPanel>
+
+    </Grid>
+</Page>
